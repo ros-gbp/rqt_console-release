@@ -1,0 +1,12 @@
+Source: ros-lunar-rqt-console
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), ros-lunar-catkin
+Homepage: http://wiki.ros.org/rqt_console
+Standards-Version: 3.9.2
+
+Package: ros-lunar-rqt-console
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-rospkg, ros-lunar-python-qt-binding (>= 0.2.19), ros-lunar-roslib, ros-lunar-rospy, ros-lunar-rqt-gui, ros-lunar-rqt-gui-py, ros-lunar-rqt-logger-level, ros-lunar-rqt-py-common
+Description: rqt_console provides a GUI plugin for displaying and filtering ROS messages.
