@@ -40,16 +40,19 @@ from rqt_logger_level.logger_level_service_caller import LoggerLevelServiceCalle
 
 
 class ConsoleSettingsDialog(QDialog):
+
     """
     Dialog to change the subscribed topic and alter the message buffer size.
     """
+
     def __init__(self, topics, rospack):
         """
         :param topics: list of topics to allow switching, ''list of string''
         :param limit: displayed in the message buffer size spin box, ''int''
         """
         super(ConsoleSettingsDialog, self).__init__()
-        ui_file = os.path.join(rospack.get_path('rqt_console'), 'resource', 'console_settings_dialog.ui')
+        ui_file = os.path.join(
+            rospack.get_path('rqt_console'), 'resource', 'console_settings_dialog.ui')
         loadUi(ui_file, self)
         for topic in topics:
             self.topic_combo.addItem(topic[0] + ' (' + topic[1] + ')', topic[0])
