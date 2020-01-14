@@ -42,17 +42,21 @@ from rqt_py_common.ini_helper import pack, unpack
 
 
 class CustomFilterWidget(QWidget):
+
     def __init__(self, parentfilter, rospack, item_providers):
         super(CustomFilterWidget, self).__init__()
-        ui_file = os.path.join(rospack.get_path('rqt_console'), 'resource/filters', 'custom_filter_widget.ui')
+        ui_file = os.path.join(
+            rospack.get_path('rqt_console'), 'resource/filters', 'custom_filter_widget.ui')
         loadUi(ui_file, self)
         self.setObjectName('CustomFilterWidget')
         self._parentfilter = parentfilter  # When data is changed it is stored in the parent filter
 
         # keep color for highlighted items even when not active
         for list_widget in [self.severity_list, self.node_list, self.topic_list]:
-            active_color = list_widget.palette().brush(QPalette.Active, QPalette.Highlight).color().name()
-            list_widget.setStyleSheet('QListWidget:item:selected:!active { background: %s; }' % active_color)
+            active_color = list_widget.palette().brush(
+                QPalette.Active, QPalette.Highlight).color().name()
+            list_widget.setStyleSheet(
+                'QListWidget:item:selected:!active { background: %s; }' % active_color)
 
         # Text Filter Initialization
         self.text_edit.textChanged.connect(self.handle_text_changed)
@@ -146,7 +150,7 @@ class CustomFilterWidget(QWidget):
         self.regex_check_box.setChecked(regex)
         self.handle_regex_clicked(regex)
 
-        #Restore Severities
+        # Restore Severities
         for index in range(self.severity_list.count()):
             self.severity_list.item(index).setSelected(False)
         severity_item_list = unpack(settings.value('severityitemlist'))
@@ -156,7 +160,7 @@ class CustomFilterWidget(QWidget):
                 item.setSelected(True)
         self.handle_severity_item_changed()
 
-        #Restore Topics
+        # Restore Topics
         for index in range(self.topic_list.count()):
             self.topic_list.item(index).setSelected(False)
         topic_item_list = unpack(settings.value('topicitemlist'))
@@ -168,7 +172,7 @@ class CustomFilterWidget(QWidget):
                 item.setSelected(True)
         self.handle_topic_item_changed()
 
-        #Restore Nodes
+        # Restore Nodes
         for index in range(self.node_list.count()):
             self.node_list.item(index).setSelected(False)
         node_item_list = unpack(settings.value('nodeitemlist'))
