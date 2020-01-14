@@ -42,10 +42,12 @@ from rqt_py_common.ini_helper import pack, unpack
 
 
 class ListFilterWidget(QWidget):
+
     """
     Generic List widget to be used when implementing filters that require
     limited dynamic selections
     """
+
     def __init__(self, parentfilter, rospack, item_provider):
         """
         :param parentfilter: The filter object, must implement set_list and
@@ -53,10 +55,12 @@ class ListFilterWidget(QWidget):
         :param item_provider: a function designed to provide a list or dict
         """
         super(ListFilterWidget, self).__init__()
-        ui_file = os.path.join(rospack.get_path('rqt_console'), 'resource/filters', 'list_filter_widget.ui')
+        ui_file = os.path.join(
+            rospack.get_path('rqt_console'), 'resource/filters', 'list_filter_widget.ui')
         loadUi(ui_file, self)
         self.setObjectName('ListFilterWidget')
-        self._parentfilter = parentfilter  # When data is changed we need to store it in the parent filter
+        # When data is changed we need to store it in the parent filter
+        self._parentfilter = parentfilter
 
         # keep color for highlighted items even when not active
         active_color = self.palette().brush(QPalette.Active, QPalette.Highlight).color().name()
@@ -96,7 +100,8 @@ class ListFilterWidget(QWidget):
                     item = new_items[key]
                     if item not in self._display_list:
                         self.list_widget.addItem(item)
-                        self.list_widget.item(self.list_widget.count() - 1).setData(Qt.UserRole, key)
+                        self.list_widget.item(
+                            self.list_widget.count() - 1).setData(Qt.UserRole, key)
             else:
                 for item in new_items:
                     if item not in self._display_list:
