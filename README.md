@@ -1,3 +1,26 @@
+## rqt_console (noetic) - 0.4.12-1
+
+The packages in the `rqt_console` repository were released into the `noetic` distro by running `/usr/bin/bloom-release -r noetic -t noetic rqt_console` on `Mon, 02 Oct 2023 01:09:20 -0000`
+
+The `rqt_console` package was released.
+
+Version of package(s) in repository `rqt_console`:
+
+- upstream repository: https://github.com/ros-visualization/rqt_console.git
+- release repository: https://github.com/ros-gbp/rqt_console-release.git
+- rosdistro version: `0.4.11-1`
+- old version: `0.4.11-1`
+- new version: `0.4.12-1`
+
+Versions of tools used:
+
+- bloom version: `0.11.2`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.22.2`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## rqt_console (noetic) - 0.4.11-1
 
 The packages in the `rqt_console` repository were released into the `noetic` distro by running `/usr/bin/bloom-release -r noetic -t noetic rqt_console` on `Fri, 22 May 2020 17:41:03 -0000`
